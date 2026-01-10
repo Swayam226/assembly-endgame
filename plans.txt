@@ -1,0 +1,23 @@
+1. main containers of elements i need in this app ?
+
+-> header component (having h1, h2)
+-> afterGame component (conditionally rendered based on game result)
+-> main component (having languages section, languages stylised as buttons or divs all in flex with wrap, letterbox as divs)
+-> alphabets component with section having various divs
+-> footer showing the new game button conditionally and the my name
+
+
+
+2. whst values needs to be in state and what can be derived from state ?
+
+-> visited alphabets can be part of state
+-> cancelled languages are also part of state
+-> correctly clicked words too
+-> incorrectly clicked words too
+-> game result can be derived
+
+
+
+3. how will the user interact with this app? what events do i need to handle ?
+
+-> POC the keyboard of alphabets and new game button
