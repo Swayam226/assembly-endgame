@@ -1,6 +1,9 @@
 import "./App.css";
 import Header from "./components/Header";
+import Languages from "./components/Languages";
 import Status from "./components/Status";
+import Word from "./components/Word";
+import Keyboard from "./components/Keyboard";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
       />
       <Header />
       <Status />
+      <Languages />
+      <Word />
+      <Keyboard />
     </>
   );
 }
