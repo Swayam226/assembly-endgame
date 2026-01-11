@@ -1,4 +1,4 @@
-import { languages } from "../../languages";
+import { languages } from "../utils/languages";
 
 export default function Languages() {
   const langEl = languages.map((lang) => {
