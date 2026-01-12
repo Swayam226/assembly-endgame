@@ -8,7 +8,7 @@ export default function Languages() {
     };
     return (
       <span
-        className="w-24 h-10 flex justify-center items-center rounded-sm hover:scale-110"
+        className="w-24 h-10 flex justify-center items-center rounded-sm transition-transform hover:scale-110"
         key={lang.name}
         style={styles}
       >
