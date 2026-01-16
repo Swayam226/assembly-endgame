@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div
-        className="absolute inset-0 z-0"
+        className="fixed inset-0 z-0"
         style={{
           background: `linear-gradient(45deg, #1a1a1a 0%, #003366 100%),
         repeating-linear-gradient(
@@ -32,7 +32,7 @@ function App() {
       <Status />
       <Languages />
       <Word />
-      <Keyboard />
+      {/* <Keyboard /> */}
     </>
   );
 }
