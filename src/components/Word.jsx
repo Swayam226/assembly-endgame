@@ -51,14 +51,34 @@ export default function Word() {
 
   const isgameOver = isWon || isLost;
 
+  const lastGuessedLetter =
+    guessedLetters.length > 0
+      ? guessedLetters[guessedLetters.length - 1]
+      : null;
+
+  const lastGuessWasWrong =
+    lastGuessedLetter && !currentWord.includes(lastGuessedLetter);
+
+  let lastEliminatedLanguage = null;
+
+  if (lastGuessWasWrong && wrongGuessCount > 0) {
+    lastEliminatedLanguage = languages_object[wrongGuessCount - 1];
+  }
+
   return (
     <>
-      <Status wrongGuessCount={wrongGuessCount} isWon={isWon} isLost={isLost} />
+      <Status
+        wrongGuessCount={wrongGuessCount}
+        isWon={isWon}
+        isLost={isLost}
+        lastEliminatedLanguage={lastEliminatedLanguage}
+      />
       <Languages wrongGuessCount={wrongGuessCount} />
       <section className="relative z-10 pt-10 flex justify-center items-center flex-row gap-3">
         {letters}
       </section>
       <Keyboard
+        isWon={isWon}
         currentWord={currentWord}
         guessedLetters={guessedLetters}
         setguessedletters={setguessedletters}

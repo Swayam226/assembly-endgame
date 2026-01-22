@@ -26,6 +26,7 @@ export default function Keyboard(props) {
       {
         "bg-green-500 cursor-not-allowed": isCorrect,
         "bg-red-500 cursor-not-allowed": isWrong,
+        "cursor-not-allowed": props.isWon,
       },
     );
     // console.log(className);
