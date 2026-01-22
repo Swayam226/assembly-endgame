@@ -29,7 +29,7 @@ function App() {
         }}
       />
       <Header />
-      <Status />
+      {/* <Status /> */}
       {/* <Languages /> */}
       <Word />
       {/* <Keyboard /> */}
