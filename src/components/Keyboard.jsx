@@ -36,6 +36,8 @@ export default function Keyboard(props) {
         key={letter}
         className={className}
         onClick={() => keyClick(letter)}
+        aria-disabled={props.guessedLetters.includes(letter)}
+        aria-label={`Letter ${letter}`}
       >
         {letter.toUpperCase()}
       </button>
@@ -48,7 +50,10 @@ export default function Keyboard(props) {
       </div>
       {props.isgameOver && (
         <div className="pt-5 pb-5 flex justify-center items-center">
-          <button className="w-24 h-10 rounded-sm cursor-pointer bg-red-600 text-white transition-transform hover:scale-105">
+          <button
+            className="w-24 h-10 rounded-sm cursor-pointer bg-red-600 text-white transition-transform hover:scale-105"
+            onClick={props.newgameClick}
+          >
             New Game
           </button>
         </div>

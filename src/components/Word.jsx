@@ -3,9 +3,16 @@ import Keyboard from "./Keyboard";
 import Languages from "./Languages";
 import Status from "./Status";
 import { languages_object } from "../utils/languages_object";
+import { words } from "../utils/words";
 
 export default function Word() {
-  const [currentWord, setcurrentWord] = useState("react");
+  // const randomIndex = Math.floor(Math.random() * words.length);
+
+  function getRandomWord() {
+    const randomIndex = Math.floor(Math.random() * words.length);
+    return words[randomIndex];
+  }
+  const [currentWord, setcurrentWord] = useState(getRandomWord());
   const [guessedLetters, setguessedletters] = useState([]);
   const wrongGuessCount = guessedLetters.filter(
     (letter) => !currentWord.includes(letter),
@@ -65,6 +72,11 @@ export default function Word() {
     lastEliminatedLanguage = languages_object[wrongGuessCount - 1];
   }
 
+  function newgameClick() {
+    setcurrentWord(getRandomWord());
+    setguessedletters([]);
+  }
+
   return (
     <>
       <Status
@@ -72,6 +84,7 @@ export default function Word() {
         isWon={isWon}
         isLost={isLost}
         lastEliminatedLanguage={lastEliminatedLanguage}
+        currentWord={currentWord}
       />
       <Languages wrongGuessCount={wrongGuessCount} />
       <section className="relative z-10 pt-10 flex justify-center items-center flex-row gap-3">
@@ -83,6 +96,7 @@ export default function Word() {
         guessedLetters={guessedLetters}
         setguessedletters={setguessedletters}
         isgameOver={isgameOver}
+        newgameClick={newgameClick}
       />
     </>
   );
