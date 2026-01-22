@@ -1,4 +1,4 @@
-export const languages = [
+export const languages_object = [
     {
         name: "HTML",
         backgroundColor: "#E2680F",

@@ -30,7 +30,7 @@ function App() {
       />
       <Header />
       <Status />
-      <Languages />
+      {/* <Languages /> */}
       <Word />
       {/* <Keyboard /> */}
     </>
