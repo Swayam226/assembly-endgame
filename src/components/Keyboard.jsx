@@ -13,7 +13,7 @@ export default function Keyboard(props) {
     */
 
     props.setguessedletters((prev) =>
-      prev.includes(letter) ? prev : [...prev, letter]
+      prev.includes(letter) ? prev : [...prev, letter],
     );
   }
 
@@ -26,7 +26,7 @@ export default function Keyboard(props) {
       {
         "bg-green-500 cursor-not-allowed": isCorrect,
         "bg-red-500 cursor-not-allowed": isWrong,
-      }
+      },
     );
     // console.log(className);
 
@@ -45,11 +45,13 @@ export default function Keyboard(props) {
       <div className="max-w-5xl flex justify-center items-center flex-wrap gap-5 font-semibold">
         {keys}
       </div>
-      <div className="pt-5 pb-5 flex justify-center items-center">
-        <button className="w-24 h-10 rounded-sm cursor-pointer bg-red-600 text-white transition-transform hover:scale-105">
-          New Game
-        </button>
-      </div>
+      {props.isgameOver && (
+        <div className="pt-5 pb-5 flex justify-center items-center">
+          <button className="w-24 h-10 rounded-sm cursor-pointer bg-red-600 text-white transition-transform hover:scale-105">
+            New Game
+          </button>
+        </div>
+      )}
     </section>
   );
 }

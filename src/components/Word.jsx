@@ -2,6 +2,7 @@ import { useState } from "react";
 import Keyboard from "./Keyboard";
 import Languages from "./Languages";
 import Status from "./Status";
+import { languages_object } from "../utils/languages_object";
 
 export default function Word() {
   const [currentWord, setcurrentWord] = useState("react");
@@ -30,10 +31,9 @@ export default function Word() {
   let isWon = false;
   let isLost = false;
   let correct = true;
-  const checkingLettersinword = currentWord.split("");
-  // const checkingLettersinguess = guessedLetters.split("");
+
   for (let i = 0; i < currentWord.length; i++) {
-    if (!guessedLetters.includes(checkingLettersinword[i])) {
+    if (!guessedLetters.includes(currentWord[i])) {
       correct = false;
       break;
     }
@@ -41,13 +41,19 @@ export default function Word() {
 
   if (correct) {
     isWon = true;
-  } else {
+  }
+
+  const MAX_WRONG_GUESSES = languages_object.length;
+
+  if (wrongGuessCount >= MAX_WRONG_GUESSES) {
     isLost = true;
   }
 
+  const isgameOver = isWon || isLost;
+
   return (
     <>
-      <Status wrongGuessCount={wrongGuessCount} isWon={isWon} />
+      <Status wrongGuessCount={wrongGuessCount} isWon={isWon} isLost={isLost} />
       <Languages wrongGuessCount={wrongGuessCount} />
       <section className="relative z-10 pt-10 flex justify-center items-center flex-row gap-3">
         {letters}
@@ -56,6 +62,7 @@ export default function Word() {
         currentWord={currentWord}
         guessedLetters={guessedLetters}
         setguessedletters={setguessedletters}
+        isgameOver={isgameOver}
       />
     </>
   );
