@@ -4,10 +4,12 @@ import Languages from "./components/Languages";
 import Status from "./components/Status";
 import Word from "./components/Word";
 import Keyboard from "./components/Keyboard";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
     <>
+      <Analytics />
       <div
         className="fixed inset-0 z-0"
         style={{
