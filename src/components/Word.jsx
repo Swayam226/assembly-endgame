@@ -6,8 +6,6 @@ import { languages_object } from "../utils/languages_object";
 import { words } from "../utils/words";
 
 export default function Word() {
-  // const randomIndex = Math.floor(Math.random() * words.length);
-
   function getRandomWord() {
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
@@ -19,11 +17,6 @@ export default function Word() {
   ).length;
   const letters = currentWord.split("").map((l, index) => {
     const isCorrect = guessedLetters.includes(l);
-    // const isWrong = !guessedLetters.includes(l);
-    // let wrongGuessCount = 0;
-    // if (isWrong) {
-    //   wrongGuessCount++;
-    // }
 
     return (
       <div

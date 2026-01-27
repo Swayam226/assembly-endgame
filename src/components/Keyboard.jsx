@@ -29,7 +29,6 @@ export default function Keyboard(props) {
         "cursor-not-allowed": props.isWon,
       },
     );
-    // console.log(className);
 
     return (
       <button
