@@ -1,9 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
-import Languages from "./components/Languages";
-import Status from "./components/Status";
 import Word from "./components/Word";
-import Keyboard from "./components/Keyboard";
 import { Analytics } from "@vercel/analytics/react";
 
 function App() {
@@ -31,10 +28,7 @@ function App() {
         }}
       />
       <Header />
-      {/* <Status /> */}
-      {/* <Languages /> */}
       <Word />
-      {/* <Keyboard /> */}
     </>
   );
 }
